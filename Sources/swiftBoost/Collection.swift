@@ -10,12 +10,8 @@ import Foundation
 
 public extension Collection {
 
-    func joined() -> [Any] {
-        return flatMap { ($0 as? [Any])?.joined() ?? [$0] }
-    }
-
-    func flatMapped<T>(with type: T.Type? = nil) -> [T] {
-        return joined().compactMap { $0 as? T }
+    func compactMerge() -> [Any] {
+        return flatMap { ($0 as? [Any])?.compactMerge() ?? [$0] }
     }
 
 }
